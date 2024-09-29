@@ -1,6 +1,10 @@
 from unsloth import FastLanguageModel
 import gradio as gr
 
+# Check if CUDA is available
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
 # Load the LoRA model directly using Unsloth
 MODEL_NAME = "thatstommy/lora_model"  # Replace with your actual LoRA model name
 max_seq_length = 2048  # Set maximum sequence length
